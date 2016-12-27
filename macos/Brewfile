@@ -1,0 +1,6 @@
+tap 'caskroom/cask'
+
+brew 'carthage'
+brew 'ctags'
+brew 'tree'
+
