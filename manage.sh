@@ -1,4 +1,5 @@
 files=(\
+	bash_profile
 	bashrc \
 	vimrc \
 	)
