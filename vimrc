@@ -1,5 +1,13 @@
 set nocompatible
 
+let s:_bdir = $HOME . "/.vim/bdir//"
+if !isdirectory(s:_bdir)
+	call mkdir(s:_bdir, "p")
+endif
+let &backupdir=s:_bdir
+let &directory=s:_bdir
+unlet s:_bdir
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
