@@ -1,6 +1,7 @@
 files=(\
 	bash_profile
 	bashrc \
+	ctags\
 	vimrc \
 	)
 

@@ -1,0 +1,17 @@
+--exclude=.git
+--exclude=build
+--exclude=Build
+--exclude=Debug
+--exclude=Release
+
+--langdef=ObjectiveC
+--langmap=ObjectiveC:.m.mm.h
+--regex-ObjectiveC=/\@interface[[:space:]]+([[:alnum:]_]+)/\1/i,interface/
+--regex-ObjectiveC=/\@implementation[[:space:]]+([[:alnum:]_]+)/\1/I,implementation/
+--regex-ObjectiveC=/\@protocol[[:space:]]+([[:alnum:]_]+)/\1/P,protocol/
+--regex-ObjectiveC=/\@property[[:space:]]+\([[:alnum:],[:space:]]+\)[[:space:]]+[[:alnum:]_]+[[:space:]]+\*?([[:alnum:]_]+)/\1/p,property/
+--regex-ObjectiveC=/([-+])[[:space:]]*\([[:alpha:]_][^)]*\)[[:space:]]*([[:alpha:]_:][^;{]+).*/\1\2/M,method definition/
+--regex-ObjectiveC=/^[^#@[:space:]][^=]*[[:space:]]([[:alpha:]_][[:alnum:]_]*)[[:space:]]*=/\1/c,constant/
+--regex-ObjectiveC=/^[[:space:]]*typedef[[:space:]][^;]+[[:space:]]([[:alpha:]_][[:alnum:]]*)[[:space:]]*;/\1/t,typedef/
+--regex-ObjectiveC=/^[[:space:]]*NS_ENUM\([[:alnum:]]+[[:space:]]*,[[:space:]]([[:alnum:]]+)\)/\1/e,enum/
+--regex-ObjectiveC=/^#pragma[[:space:]]+mark[[:space:]]+-?[[:space:]]+([[:alnum:][:space:]]+)/\1/g,pragma/
