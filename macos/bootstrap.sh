@@ -12,4 +12,3 @@ brew tap Homebrew/bundle
 brew bundle --file="$DOTFILES/macos/Brewfile"
 brew bundle --file="$DOTFILES/macos/Brewfile.cask"
 
-
