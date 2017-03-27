@@ -1,8 +1,12 @@
+#!/bin/bash
+
 files=(\
 	bash_profile
 	bashrc \
 	ctags\
 	vimrc \
+    git_template \
+    gitconfig \
 	)
 
 die() {
@@ -62,5 +66,4 @@ elif [[ $1 == "remove" ]]; then
 	remove_links
 	
 fi
-
 

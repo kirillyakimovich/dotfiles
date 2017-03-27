@@ -1,0 +1,11 @@
+[user]
+	name = Kirill Yakimovich
+	email = kirill.yakimovich@gmail.com
+[core]
+	editor = vim
+[init]
+      templatedir = ~/.git_template
+[alias]
+	bcommit = "!_() { br=$(git symbolic-ref --short HEAD); echo [$br] $1; }; _"
+	bbc = "!_() { var=$(git bcommit $1); echo $var; }; _"
+	bcc = "!f() { var=$(git bcommit $1); msg='git commit -am \"'; msg+=$var; v=$msg'\"'; echo $v;$v; }; f "
