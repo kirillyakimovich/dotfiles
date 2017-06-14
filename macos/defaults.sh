@@ -2,6 +2,10 @@
 
 # ~/.osx — http://mths.be/osx
 
+# Disable dock jumping
+defaults write com.apple.dock no-bouncing -bool TRUE
+killall Dock
+
 if [[ $# -ne 1 ]];then
   echo "Usage: ./$(basename "$0") COMPNAME"
   exit
