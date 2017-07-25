@@ -1,3 +1,5 @@
 cask 'alfred'
 cask 'hex-fiend'
 cask 'macdown'
+cask 'insomnia'
+cask 'pusher'
