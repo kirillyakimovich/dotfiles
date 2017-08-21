@@ -126,6 +126,18 @@ else
 
 endif " has("autocmd")
 
+" Yank to clipboard
+if has("clipboard") 
+    
+    set clipboard=unnamed " copy to the system clipboard
+
+    if has("unnamedplus") " X11 support
+        
+        set clipboard+=unnamedplus
+    endif " has("unnamedplus")
+
+endif " has("clipboard")
+
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
