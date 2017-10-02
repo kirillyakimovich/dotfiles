@@ -34,8 +34,6 @@ Plugin 'jez/vim-superman'
 " ----- sml
 Plugin 'jez/vim-better-sml'
 
-Plugin 'jpalardy/vim-slime'
-
 call vundle#end()
 
 filetype plugin indent on
@@ -192,7 +190,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
-
+let g:syntastic_swift_checkers = ['swiftpm', 'swiftlint']
 
 " ----- xolox/vim-easytags settings -----
 " Where to look for tags files
@@ -228,7 +226,6 @@ augroup END"'"'"]"'"`
 " better man page support
 noremap K :SuperMan <cword><CR>
 
-" ----- jpalardy/vim-slime
-let g:slime_target = "tmux"
-let g:slime_default_config = {"socket_name": split($TMUX, ",")[0], "target_pane": ":.1"}
+" MacVim
+set guifont=Anonymous\ Pro\:h20
 
