@@ -64,6 +64,5 @@ if [[ $1 == "create" ]]; then
 	create_links
 elif [[ $1 == "remove" ]]; then
 	remove_links
-	
 fi
 
