@@ -1,3 +1,4 @@
+cask 'iterm2'
 cask 'alfred'
 cask 'hex-fiend'
 cask 'macdown'
@@ -5,4 +6,5 @@ cask 'insomnia'
 cask 'pusher'
 cask 'grandperspective'
 cask 'xld'
+cask 'telegram'
 
