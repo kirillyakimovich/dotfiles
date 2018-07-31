@@ -5,4 +5,5 @@ brew 'ctags'
 brew 'tree'
 brew 'poppler'
 brew 'shellcheck'
+brew 'bash-completion'
 
