@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Fonts                                                                       #
+# Fonts                                                                       
+# FiraCode 2.6: https://github.com/tonsky/FiraCode/releases/tag/6.2
 for font in ${PWD}/fonts/*; do
     if [[ ! -e "/Library/Fonts/$(basename "$font")" ]]; then
         printf "Copying %s to your Fonts folder\n" "$(basename "$font")"

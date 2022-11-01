@@ -9,7 +9,7 @@
 	<key>DVTConsoleDebuggerOutputTextColor</key>
 	<string>0 0 0 1</string>
 	<key>DVTConsoleDebuggerOutputTextFont</key>
-	<string>FiraCode - 14.0</string>
+	<string>FiraCode-Retina - 14.0</string>
 	<key>DVTConsoleDebuggerPromptTextColor</key>
 	<string>0.317071 0.437736 1 1</string>
 	<key>DVTConsoleDebuggerPromptTextFont</key>
@@ -17,13 +17,13 @@
 	<key>DVTConsoleExectuableInputTextColor</key>
 	<string>0 0 0 1</string>
 	<key>DVTConsoleExectuableInputTextFont</key>
-	<string>FiraCode - 14.0</string>
+	<string>FiraCode-Retina - 14.0</string>
 	<key>DVTConsoleExectuableOutputTextColor</key>
 	<string>0 0 0 1</string>
 	<key>DVTConsoleExectuableOutputTextFont</key>
 	<string>FiraCode-Bold - 14.0</string>
 	<key>DVTConsoleTextBackgroundColor</key>
-	<string>1 1 1 1</string>
+	<string>10.990704 0.9598 0.864335 1</string>
 	<key>DVTConsoleTextInsertionPointColor</key>
 	<string>0 0 0 1</string>
 	<key>DVTConsoleTextSelectionColor</key>
@@ -92,51 +92,51 @@
 	<key>DVTSourceTextSyntaxFonts</key>
 	<dict>
 		<key>xcode.syntax.attribute</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.character</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.comment</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.comment.doc</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.comment.doc.keyword</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.identifier.class</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.identifier.class.system</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.identifier.constant</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.identifier.constant.system</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.identifier.function</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.identifier.function.system</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.identifier.macro</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.identifier.macro.system</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.identifier.type</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.identifier.type.system</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.identifier.variable</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.identifier.variable.system</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.keyword</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.number</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.plain</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.preprocessor</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.string</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 		<key>xcode.syntax.url</key>
-		<string>FiraCode - 14.0</string>
+		<string>FiraCode-Retina - 14.0</string>
 	</dict>
 </dict>
 </plist>
