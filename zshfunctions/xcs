@@ -1,0 +1,12 @@
+# Switch to the active Xcode version in the .xcode-version file
+function xcs() {
+    xcode_version="$(cat .xcode-version)"
+    selected_xcode_version="$(xcode-select -p | sed 's/.*Xcode-\(.*\).app.*/\1/')"
+    echo "$selected_xcode_version"
+    if [[ $selected_xcode_version == $xcode_version ]]; then
+        return
+    fi
+    sudo xcode-select -s /Applications/Xcode-$xcode_version.app/Contents/Developer
+    echo "✅ Switched to Xcode $xcode_version"
+}
+

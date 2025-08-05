@@ -1,0 +1,5 @@
+# Override the ./ios command with ios 
+function ios() {
+  xcs
+  ./ios "$@"
+}

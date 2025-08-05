@@ -1,12 +1,9 @@
 #!/bin/bash
 
 files=(\
-	bash_profile
-	bashrc \
-	ctags\
-	vimrc \
-    git_template \
-    gitconfig \
+    zshrc \ 
+	git_template \
+       gitconfig \
 	)
 
 die() {
