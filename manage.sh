@@ -2,9 +2,9 @@
 
 files=(\
     zshrc \ 
-	git_template \
-       gitconfig \
-	)
+    git_template \
+    gitconfig \
+)
 
 die() {
 	echo "Usage: ./manage.sh {create|remove}"
