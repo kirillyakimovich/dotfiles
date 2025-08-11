@@ -50,6 +50,13 @@ defaults write com.apple.dock show-recents -bool false
 defaults write com.apple.dock showLaunchpadGestureEnabled -int 0
 
 #
+# Accessibility
+#
+
+# Reduce transparency in the menu bar and elsewhere
+defaults write com.apple.universalaccess reduceTransparency -bool true
+
+#
 # Keyboard
 #
 
