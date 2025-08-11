@@ -1,11 +1,26 @@
 [user]
 	name = Kirill Yakimovich
 	email = kirill.yakimovich@gmail.com
+
 [core]
+	attributesfile = ~/.gitattributes
 	editor = vim
+	excludesfile = ~/.gitignore
+	whitespace = trailing-space,space-before-tab
 [init]
       templatedir = ~/.git_template
 [alias]
 	bcommit = "!_() { br=$(git symbolic-ref --short HEAD); echo [$br] $1; }; _"
 	bbc = "!_() { var=$(git bcommit $1); echo $var; }; _"
 	bcc = "!f() { var=$(git bcommit $1); msg='git commit -am \"'; msg+=$var; v=$msg'\"'; echo $v;$v; }; f "
+
+[diff "plist"]
+  textconv = plutil -convert xml1 -o -
+
+# https://juripakaste.fi/swift-git-attributes
+[diff "swift"]
+  xfuncname = ^[ \t]*(((private |public |internal |final |open )*class|(private |public |internal )*struct|(private |public |internal )*actor|(private |public |internal )*func|(private |public |internal )*extension|(private |public |internal )*enum)[ \t].*)$
+
+[diff "zip"]
+  textconv = textconv-zip
+  cachetextconv = true

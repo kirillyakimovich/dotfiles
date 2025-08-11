@@ -3,7 +3,9 @@
 files=(\
     zshrc \ 
     git_template \
+    gitattributes \
     gitconfig \
+    gitignore \
 )
 
 die() {
