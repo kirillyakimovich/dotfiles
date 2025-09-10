@@ -1,11 +1,12 @@
 #!/bin/bash
 
 files=(\
-    zshrc \ 
+    bin \
     git_template \
     gitattributes \
     gitconfig \
     gitignore \
+    zshrc \
 )
 
 die() {
