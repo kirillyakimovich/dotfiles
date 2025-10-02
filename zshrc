@@ -16,8 +16,8 @@ vman() {
     fi
 }
 
-PATH=$PATH:~/.local/bin
-PATH=$PATH:/usr/local/bin
+
+export PATH=$PATH:$HOME/.local/bin:/usr/local/bin:$HOME/.bin
 ### Adding support for custom brew installed zsh extensions
 
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
