@@ -71,6 +71,7 @@ defaults write NSGlobalDomain InitialKeyRepeat -int 15
 # Mouse/Trackpad
 
 # Trackpad: enable tap to click for this user and for the login screen
+defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
 defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad Clicking -bool true
 defaults -currentHost write NSGlobalDomain com.apple.mouse.tapBehavior -int 1
 
@@ -188,6 +189,9 @@ defaults write com.apple.dt.Xcode DVTTextShowMinimap -bool false
 
 # Disable Source Control
 defaults write com.apple.dt.Xcode IDESourceControlEnableSourceControl_10_0 -bool false
+
+# Disable Overscroll
+defaults write com.apple.dt.Xcode DVTTextOverscrollAmount -int 0
 
 # Show all file extensions
 defaults write com.apple.dt.Xcode IDEFileExtensionDisplayMode -int 1
