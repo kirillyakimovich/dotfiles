@@ -2,10 +2,12 @@
 
 files=(\
     bin \
+    config/nvim \
     git_template \
     gitattributes \
     gitconfig \
     gitignore \
+    vimrc \
     zshrc \
 )
 
