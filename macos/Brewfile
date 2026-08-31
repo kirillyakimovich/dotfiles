@@ -1,4 +1,4 @@
-brew nvim
+brew "neovim"
 
 # Shell & Terminal Tools
 brew "pure" # https://github.com/sindresorhus/pure#getting-started
