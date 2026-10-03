@@ -1,0 +1,12 @@
+# Switch to a branch (default master) and delete the one we left; -f force-deletes
+function gbdone() {
+    local flag=-d
+    if [[ $1 == -f ]]; then
+        flag=-D
+        shift
+    fi
+    local cur
+    cur=$(git bc) && [[ -n $cur ]] || return 1
+    [[ $cur == ${1:-master} ]] && return 1
+    git switch "${1:-master}" && git branch "$flag" "$cur"
+}

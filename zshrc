@@ -71,3 +71,9 @@ autoload -Uz $DOTFILES/zshfunctions/*(:t)
 ### Functions from dedicated folder end
 
 source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+### Alias start
+
+alias g='git'
+
+### Alias end

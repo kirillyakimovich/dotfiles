@@ -1,0 +1,7 @@
+# Print the current branch and copy it to the clipboard
+function gbc() {
+    local b
+    b=$(git bc) && [[ -n $b ]] || return 1
+    print -rn -- "$b" | pbcopy
+    print -r -- "$b"
+}
