@@ -2,6 +2,7 @@
 
 files=(\
     bin \
+    Brewfile \
     config/nvim \
     git_template \
     gitattributes \

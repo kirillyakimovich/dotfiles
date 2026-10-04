@@ -8,7 +8,7 @@ if [[ ! -e ./manage.sh ]]; then
   exit 1
 fi
 
-./manage.sh install
+./manage.sh create
 
 # Fonts                                                                       
 # FiraCode 2.6: https://github.com/tonsky/FiraCode/releases/tag/6.2
@@ -25,7 +25,7 @@ if ! command -v brew &> /dev/null; then
   exit 1
 fi
 
-brew bundle --file="./macos/Brewfile"
+brew bundle install -g
 
 ./bin/setup-dock
 ./macos/defaults.sh
