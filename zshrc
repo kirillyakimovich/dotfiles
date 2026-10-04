@@ -18,10 +18,6 @@ vman() {
 
 
 export PATH=$PATH:$HOME/.local/bin:/usr/local/bin:$HOME/.bin
-### Adding support for custom brew installed zsh extensions
-
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
-###
 
 ### Auto completion start
 autoload -Uz compinit && compinit
@@ -29,7 +25,9 @@ autoload -Uz compinit && compinit
 
 ### Prompt start
 autoload -Uz promptinit; promptinit
-prompt pure
+if (( ${prompt_themes[(Ie)pure]} )); then
+    prompt pure
+fi
 ### Prompt end
 
 ###History start
@@ -70,7 +68,9 @@ fpath=($DOTFILES/zshfunctions $fpath)
 autoload -Uz $DOTFILES/zshfunctions/*(:t)
 ### Functions from dedicated folder end
 
-source "$(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+if [[ -n $HOMEBREW_PREFIX ]]; then
+    source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
 
 ### Alias start
 

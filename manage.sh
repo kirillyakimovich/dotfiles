@@ -8,6 +8,7 @@ files=(\
     gitconfig \
     gitignore \
     vimrc \
+    zprofile \
     zshrc \
 )
 
