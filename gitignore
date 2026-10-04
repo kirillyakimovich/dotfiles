@@ -1,5 +1,7 @@
 .DS_Store
 
+.nvim.lua
+
 bazel_cache
 build.noindex
 DerivedData
