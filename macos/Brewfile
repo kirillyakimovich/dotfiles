@@ -1,21 +1,12 @@
-brew "neovim"
-
-# Shell & Terminal Tools
-brew "pure" # https://github.com/sindresorhus/pure#getting-started
-brew "zsh-syntax-highlighting" # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
-brew "shellcheck"
 brew "hyperfine"
+brew "neovim"
+brew "pure" # https://github.com/sindresorhus/pure#getting-started
+brew "shellcheck"
+brew "uv"
+brew "zsh-syntax-highlighting" # https://github.com/zsh-users/zsh-syntax-highlighting/blob/master/INSTALL.md
 
-# Terminal & System Applications
 cask "ghostty"
-cask "hex-fiend"
 cask "grandperspective"
-
-# Development Tools
-brew "insomnia"
-brew "pusher"
-
-# Media & Productivity
-cask "typora"
-brew "xld"
+cask "hex-fiend"
 cask "spotify"
+cask "typora"
