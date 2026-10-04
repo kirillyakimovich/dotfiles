@@ -17,8 +17,6 @@ vman() {
 }
 
 
-export PATH=$PATH:$HOME/.local/bin:/usr/local/bin:$HOME/.bin
-
 ### Auto completion start
 autoload -Uz compinit && compinit
 ### Auto completion end
