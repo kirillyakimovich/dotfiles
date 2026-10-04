@@ -26,6 +26,7 @@ if ! command -v brew &> /dev/null; then
 fi
 
 brew bundle install -g
+./bin/install-uv-tools
 
 ./bin/setup-dock
 ./macos/defaults.sh
