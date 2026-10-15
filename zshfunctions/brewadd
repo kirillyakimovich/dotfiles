@@ -1,0 +1,5 @@
+# Install a formula/cask and record it in the dotfiles Brewfile
+function brewadd() {
+  brew bundle add --global "$@" && brew bundle install --global
+}
+
