@@ -8,15 +8,6 @@ export EDITOR=vim
 
 bindkey -v
 
-vman() {
-    vim -c "SuperMan $*"
-
-    if [ "$?" != "0" ]; then
-        echo "No manual entry for $*"
-    fi
-}
-
-
 ### Auto completion start
 autoload -Uz compinit && compinit
 ### Auto completion end
@@ -43,16 +34,6 @@ setopt HIST_VERIFY               # Do not execute immediately upon history expan
 setopt APPEND_HISTORY            # append to history file
 setopt HIST_NO_STORE             # Don't store history commands
 
-function h() {
-    # check if we passed any parameters
-    if [ -z "$*" ]; then
-        # if no parameters were passed print entire history
-        history 1
-    else
-        # if words were passed use it as a search
-        history 1 | egrep --color=auto "$@"
-    fi
-}
 ### History end
 
 ### Navigation start
@@ -64,6 +45,7 @@ setopt auto_cd
 # https://unix.stackexchange.com/a/33898
 fpath=($DOTFILES/zshfunctions $fpath)
 autoload -Uz $DOTFILES/zshfunctions/*(:t)
+
 ### Functions from dedicated folder end
 
 if [[ -n $HOMEBREW_PREFIX ]]; then
