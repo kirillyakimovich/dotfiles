@@ -1,4 +1,6 @@
+brew "gh"
 brew "hyperfine"
+brew "keith/formulae/git-pile"
 brew "neovim"
 brew "pure" # https://github.com/sindresorhus/pure#getting-started
 brew "ripgrep"
