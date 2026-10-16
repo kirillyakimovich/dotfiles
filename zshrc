@@ -57,3 +57,7 @@ fi
 alias g='git'
 
 ### Alias end
+
+if [[ -f "$HOME/.zshrc.local" ]]; then
+  source "$HOME/.zshrc.local"
+fi
