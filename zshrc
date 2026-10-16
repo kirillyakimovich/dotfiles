@@ -4,7 +4,7 @@ export DOTFILES="$(dirname "$(readlink "$HOME/.zshrc")")"
 # Needed to properly support unicode symbols
 export LANG=en_US.UTF-8
 
-export EDITOR=vim
+export EDITOR=nvim
 
 bindkey -v
 
