@@ -7,8 +7,7 @@
 	editor = vim
 	excludesfile = ~/.gitignore
 	whitespace = trailing-space,space-before-tab
-[init]
-	templatedir = ~/.git_template
+
 [alias]
 	# status
 	s = status
