@@ -4,9 +4,22 @@
 
 [core]
 	attributesfile = ~/.gitattributes
-	editor = vim
+	editor = nvim
 	excludesfile = ~/.gitignore
 	whitespace = trailing-space,space-before-tab
+
+[pull]
+	rebase = true
+[rerere]
+	enabled = true
+	autoupdate = true
+[advice]
+	skippedCherryPicks = false
+
+[branch "main"]
+	pushRemote = NOPE
+[branch "master"]
+	pushRemote = NOPE
 
 [alias]
 	# status
@@ -29,8 +42,6 @@
 
 	# switch
 	sw = switch
-[branch "master"]
-	pushRemote = NOPE
 
 [diff "plist"]
 	textconv = plutil -convert xml1 -o -
