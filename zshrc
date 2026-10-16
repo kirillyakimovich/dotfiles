@@ -58,6 +58,11 @@ alias g='git'
 
 ### Alias end
 
+### git-pile start
+export GIT_PILE_PREFIX=ky/
+export GIT_PILE_USE_PR_TEMPLATE=1
+### git-pile end
+
 if [[ -f "$HOME/.zshrc.local" ]]; then
   source "$HOME/.zshrc.local"
 fi

@@ -53,5 +53,8 @@
 [diff "zip"]
 	textconv = unzip -v
 
+[pile]
+	cleanupRemoteOnSubmitFailure = true
+
 [includeIf "hasconfig:remote.*.url:*lyft*/**"]
 	path = ~/.work.gitconfig
