@@ -1,0 +1,7 @@
+theme = iTerm2 Solarized Light
+font-family = Fira-Code
+
+# Fixing conflict between pure and ghosty 1.3.0
+shell-integration = none
+
+window-save-state = always

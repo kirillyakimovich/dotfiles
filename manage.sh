@@ -4,6 +4,7 @@ files=(\
     bin \
     Brewfile \
     config/nvim \
+    config/ghostty \
     gitattributes \
     gitconfig \
     gitignore \
