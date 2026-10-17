@@ -6,6 +6,8 @@ vim.o.tabstop = 2
 vim.o.softtabstop = 2
 vim.o.shiftround = true
 
+vim.o.number = true
+
 -- Color Scheme
 --
 -- Old Solarized needs 256-color mode
