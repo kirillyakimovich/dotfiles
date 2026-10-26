@@ -7,7 +7,7 @@ require("conform").setup({
     python = { "ruff_fix", "ruff_format" },
   },
   formatters = {
-    ruff_fix = { require_cwd = true },
+    ruff_fix = { require_cwd = true, append_args = { "--unfixable", "F401" } },
     ruff_format = { require_cwd = true },
   },
   format_on_save = function(buf)
