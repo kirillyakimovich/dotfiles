@@ -14,8 +14,11 @@ require("conform").setup({
     if vim.g.format_on_save or vim.b[buf].format_on_save then
       return { timeout_ms = 2000, lsp_format = "never" }
     end
+    if vim.bo[buf].filetype ~= "python" then
+      return
+    end
     local root = vim.fs.root(buf, { { "ruff.toml", ".ruff.toml", "pyproject.toml" } })
-    if root and not notified[root] and vim.bo[buf].filetype == "python" then
+    if root and not notified[root] then
       notified[root] = true
       vim.notify("format-on-save is off in " .. root .. " (opt in with a trusted .nvim.lua)")
     end
