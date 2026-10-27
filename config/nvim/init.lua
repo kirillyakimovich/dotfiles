@@ -7,6 +7,7 @@ vim.o.softtabstop = 2
 vim.o.shiftround = true
 
 vim.o.number = true
+vim.o.winborder = "rounded"
 
 -- Color Scheme
 --
