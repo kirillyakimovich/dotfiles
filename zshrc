@@ -5,6 +5,7 @@ export DOTFILES="$(dirname "$(readlink "$HOME/.zshrc")")"
 export LANG=en_US.UTF-8
 
 export EDITOR=nvim
+export MANPAGER='nvim +Man!'
 
 bindkey -v
 
