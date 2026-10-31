@@ -4,4 +4,3 @@
 function brewadd() {
   brew bundle add --global "$@" && brew bundle install --global
 }
-

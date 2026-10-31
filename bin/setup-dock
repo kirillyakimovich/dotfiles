@@ -12,4 +12,3 @@ dockutil --add "/Applications/Google Chrome.app"
 
 dockutil --add "/Applications" --view list --display folder --sort name
 dockutil --add "$HOME/Downloads" --view grid --display stack --sort dateadded
-

@@ -1,83 +1,80 @@
 #!/bin/bash
 
-files=(\
-    bin \
-    Brewfile \
-    config/nvim \
-    config/ghostty \
-    gitattributes \
-    gitconfig \
-    gitignore \
-    vimrc \
-    zprofile \
-    zshrc \
+files=(
+  bin
+  Brewfile
+  config/nvim
+  config/ghostty
+  gitattributes
+  gitconfig
+  gitignore
+  vimrc
+  zprofile
+  zshrc
 )
 
 die() {
-	echo "Usage: ./manage.sh {create|remove}"
-	exit 1
+  echo "Usage: ./manage.sh {create|remove}"
+  exit 1
 }
 
 new_path() {
-	echo "$HOME/.$1"
+  echo "$HOME/.$1"
 }
 
 create_link() {
-	local filename="$1"
+  local filename="$1"
 
-	if [[ ! -e "$filename" ]]; then
-		echo "$filename doesn't exist"
-		return
-	fi
+  if [[ ! -e "$filename" ]]; then
+    echo "$filename doesn't exist"
+    return
+  fi
 
-	target="$(new_path "$filename")"
-	if [[ ! -e "$target" ]]; then
-		echo "Linking $filename to $target"
-		ln -s "$PWD/$filename" "$target"
-	fi
+  target="$(new_path "$filename")"
+  if [[ ! -e "$target" ]]; then
+    echo "Linking $filename to $target"
+    ln -s "$PWD/$filename" "$target"
+  fi
 }
 
 create_links() {
-	for file in "${files[@]}"
-	do
-		create_link "$file"
-	done
+  for file in "${files[@]}"; do
+    create_link "$file"
+  done
 }
 
 remove_link() {
-	target="$(new_path "$1")"
+  target="$(new_path "$1")"
 
-	if [ -e "$target" ]; then
-		echo "Removing $target"
-		rm "$target"
-	fi
+  if [ -e "$target" ]; then
+    echo "Removing $target"
+    rm "$target"
+  fi
 }
 
 remove_links() {
-	for file in "${files[@]}"
-	do
-		remove_link "$file"
-	done
+  for file in "${files[@]}"; do
+    remove_link "$file"
+  done
 }
 
 generate_helptags() {
-	if ! command -v nvim >/dev/null; then
-		echo "nvim not found, skipping help tags"
-		return
-	fi
+  if ! command -v nvim >/dev/null; then
+    echo "nvim not found, skipping help tags"
+    return
+  fi
 
-	echo "Generating Neovim help tags"
-	nvim --headless -u NONE -c "helptags $PWD/config/nvim/doc" -c q
+  echo "Generating Neovim help tags"
+  nvim --headless -u NONE -c "helptags $PWD/config/nvim/doc" -c q
 }
 
 if [[ $# != 1 ]]; then
-	die
+  die
 fi
 
 if [[ $1 == "create" ]]; then
-	create_links
-	generate_helptags
+  create_links
+  generate_helptags
 elif [[ $1 == "remove" ]]; then
-	remove_links
+  remove_links
 fi
-
