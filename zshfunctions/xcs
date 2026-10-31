@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Switch to the active Xcode version in the .xcode-version file
 function xcs() {
     xcode_version="$(cat .xcode-version)"

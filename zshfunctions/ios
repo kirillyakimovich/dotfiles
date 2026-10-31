@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Override the ./ios command with ios 
 function ios() {
   xcs

@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Print the current branch and copy it to the clipboard
 function gbc() {
     local b

@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 typeset -U path PATH
 
 if [[ -x /opt/homebrew/bin/brew ]]; then

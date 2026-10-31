@@ -1,3 +1,5 @@
+#!/usr/bin/env zsh
+
 # Switch to a branch (default master) and delete the one we left; -f force-deletes
 function gbdone() {
     local flag=-d
