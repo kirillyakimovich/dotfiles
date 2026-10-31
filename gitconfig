@@ -16,12 +16,12 @@
 	autoupdate = true
 
 [merge]
-  conflictstyle = zdiff3
-  tool = nvimdiff3
+	conflictstyle = zdiff3
+	tool = nvimdiff3
 
 [mergetool]
-  keepBackup = false
-  prompt = false
+	keepBackup = false
+	prompt = false
 
 [advice]
 	skippedCherryPicks = false

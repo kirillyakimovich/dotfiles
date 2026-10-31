@@ -4,3 +4,7 @@ root = true
 indent_style = space
 indent_size = 2
 case_indent = true
+
+# git config writes tabs, so match it
+[{gitconfig,gitattributes,gitignore}]
+indent_style = tab
