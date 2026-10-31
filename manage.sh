@@ -60,12 +60,23 @@ remove_links() {
 	done
 }
 
+generate_helptags() {
+	if ! command -v nvim >/dev/null; then
+		echo "nvim not found, skipping help tags"
+		return
+	fi
+
+	echo "Generating Neovim help tags"
+	nvim --headless -u NONE -c "helptags $PWD/config/nvim/doc" -c q
+}
+
 if [[ $# != 1 ]]; then
 	die
 fi
 
 if [[ $1 == "create" ]]; then
 	create_links
+	generate_helptags
 elif [[ $1 == "remove" ]]; then
 	remove_links
 fi

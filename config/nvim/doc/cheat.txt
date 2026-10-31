@@ -1,0 +1,64 @@
+*cheat.txt*	Things I'm learning in Neovim
+
+                                      Type |gO| to see the table of contents.
+
+==============================================================================
+NOW                                                              *cheat-now*
+
+Practising these. Move a line to its section once it's a reflex.
+
+  :grep {pat}      search into the quickfix list               |:grep|
+  ]q  [q           next / previous quickfix entry              |]q|
+  :copen           open the quickfix window                    |:copen|
+  gO               outline of the file or man page             |gO|
+
+==============================================================================
+GREP AND QUICKFIX                                               *cheat-grep*
+
+  :grep {pat}      default 'grepprg' is "rg --vimgrep -uu"     |'grepprg'|
+                   -uu skips .gitignore, so ignored files match too
+  :cdo {cmd}       run {cmd} on every quickfix entry           |:cdo|
+  :Cfilter {pat}   keep matching entries (:packadd cfilter)    |:Cfilter|
+
+==============================================================================
+LSP                                                              *cheat-lsp*
+
+  CTRL-]  CTRL-T   go to definition / back                     |lsp-defaults|
+  K                hover docs
+  grr  gri         references / implementations
+  grn  gra         rename / code action
+  [d  ]d           previous / next diagnostic                  |]d|
+  CTRL-W d         diagnostic under the cursor in a float      |CTRL-W_d|
+
+==============================================================================
+MAN PAGES                                                        *cheat-man*
+
+  man {name}       opens in Neovim ($MANPAGER is set in zshrc)
+  :Man {name}      open a man page in a split                  |:Man|
+  K  CTRL-]        open the page under the cursor
+  CTRL-T           back to the previous page
+  gO               outline of the page's sections
+
+==============================================================================
+GIT HUNKS                                                        *cheat-git*
+
+  ]g  [g           next / previous hunk (gitsigns)
+  \hp              preview hunk
+  \hs  \hr         stage / reset hunk, also in visual mode
+
+==============================================================================
+LATER                                                          *cheat-later*
+
+  :Undotree        browse undo history (:packadd nvim.undotree) |:Undotree|
+  :DiffTool {a} {b}  diff two dirs or files (:packadd nvim.difftool)
+  :restart         restart Neovim, keeping the session         |:restart|
+  v an  v in       grow / shrink selection by syntax node      |v_an|
+
+==============================================================================
+TODO                                                            *cheat-todo*
+
+  - 'grepprg' that respects .gitignore: rg --vimgrep --smart-case
+  - 'findfunc' using git ls-files + matchfuzzy() for :find     |'findfunc'|
+  - restore last cursor position on open                     |restore-cursor|
+
+ vim:tw=78:ts=8:ft=help:norl:
