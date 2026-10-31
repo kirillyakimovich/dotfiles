@@ -4,7 +4,7 @@ local notified = {}
 
 local projects = {
   lua = { auto = { ".stylua.toml", "stylua.toml" } },
-  python = { auto = { "ruff.toml", ".ruff.toml" }, ask = { "pyrpoject.toml" } },
+  python = { auto = { "ruff.toml", ".ruff.toml" }, ask = { "pyproject.toml" } },
 }
 
 require("conform").setup({
