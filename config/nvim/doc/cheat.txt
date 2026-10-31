@@ -11,6 +11,9 @@ Practising these. Move a line to its section once it's a reflex.
   ]q  [q           next / previous quickfix entry              |]q|
   :copen           open the quickfix window                    |:copen|
   gO               outline of the file or man page             |gO|
+  `"               back to where I last left this file         |'quote|
+  `0               back to where I last quit Neovim            |'0|
+  :oldfiles        recently opened files                       |:oldfiles|
 
 ==============================================================================
 GREP AND QUICKFIX                                               *cheat-grep*
@@ -59,6 +62,6 @@ TODO                                                            *cheat-todo*
 
   - 'grepprg' that respects .gitignore: rg --vimgrep --smart-case
   - 'findfunc' using git ls-files + matchfuzzy() for :find     |'findfunc'|
-  - restore last cursor position on open                     |restore-cursor|
+  - |restore-cursor| autocmd, only if I end up typing `" on every open
 
  vim:tw=78:ts=8:ft=help:norl:
