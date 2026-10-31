@@ -5,16 +5,21 @@ local notified = {}
 local projects = {
   lua = { auto = { ".stylua.toml", "stylua.toml" } },
   python = { auto = { "ruff.toml", ".ruff.toml" }, ask = { "pyproject.toml" } },
+  sh = { ask = { ".editorconfig" } },
+  zsh = { ask = { ".editorconfig" } },
 }
 
 require("conform").setup({
   formatters_by_ft = {
     lua = { "stylua" },
     python = { "ruff_fix", "ruff_format" },
+    sh = { "shfmt" },
+    zsh = { "shfmt" },
   },
   formatters = {
     ruff_fix = { require_cwd = true, append_args = { "--unfixable", "F401" } },
     ruff_format = { require_cwd = true },
+    shfmt = { cwd = require("conform.util").root_file({ ".editorconfig" }), require_cwd = true },
     stylua = { require_cwd = true },
   },
   format_on_save = function(buf)
