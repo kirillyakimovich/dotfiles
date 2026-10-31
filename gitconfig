@@ -10,9 +10,19 @@
 
 [pull]
 	rebase = true
+
 [rerere]
 	enabled = true
 	autoupdate = true
+
+[merge]
+  conflictstyle = zdiff3
+  tool = nvimdiff3
+
+[mergetool]
+  keepBackup = false
+  prompt = false
+
 [advice]
 	skippedCherryPicks = false
 
