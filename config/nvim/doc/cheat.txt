@@ -32,6 +32,21 @@ LSP                                                              *cheat-lsp*
   grn  gra         rename / code action
   [d  ]d           previous / next diagnostic                  |]d|
   CTRL-W d         diagnostic under the cursor in a float      |CTRL-W_d|
+  :checkhealth vim.lsp   enabled configs and attached clients  |:checkhealth|
+  :lua =vim.lsp.get_clients()   which servers are running
+  :e               re-read the buffer, attaches a newly enabled server
+                   sh/bash: bashls runs shellcheck; zsh: no LSP, use zsh -n
+
+==============================================================================
+MERGE CONFLICTS                                                *cheat-merge*
+
+  ]x  [x           next / previous conflict marker (conflict.lua)
+  git mergetool    each conflicted file in Neovim, git add on :wq
+  <<< ||| === >>>  ours | base | theirs (zdiff3 in gitconfig)
+                   in a rebase, ours is the branch I'm rebasing onto
+  git checkout --conflict=zdiff3 {file}   redo the markers from scratch
+  git add {file}   mark resolved; UU in git status clears only then
+  :grep '^[<=>|]{7}( |$)'   every marker in the repo, into quickfix
 
 ==============================================================================
 MAN PAGES                                                        *cheat-man*
@@ -47,6 +62,8 @@ GIT HUNKS                                                        *cheat-git*
 
   ]g  [g           next / previous hunk (gitsigns)
   \hp              preview hunk
+  \hb              blame for the current line in a float, full message
+  \tb              toggle blame as virtual text at end of line
   \hs  \hr         stage / reset hunk, also in visual mode
 
 ==============================================================================
