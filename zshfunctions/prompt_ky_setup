@@ -29,8 +29,11 @@ function prompt_ky_setup() {
   prompt_opts=(subst percent)
 
   zstyle ':vcs_info:*' enable git
-  zstyle ':vcs_info:*' formats ' [%b]' '%r%S'
-  zstyle ':vcs_info:*' actionformats ' [%b|%a]' '%r%S'
+  zstyle ':vcs_info:*' check-for-changes true
+  zstyle ':vcs_info:*' unstagedstr '%F{red}*%f'
+  zstyle ':vcs_info:*' stagedstr '%F{green}+%f'
+  zstyle ':vcs_info:*' formats ' [%b%u%c]' '%r%S'
+  zstyle ':vcs_info:*' actionformats ' [%b|%a%u%c]' '%r%S'
   zstyle ':vcs_info:git+set-message:*' hooks ky-subdir
   add-zsh-hook precmd vcs_info
 

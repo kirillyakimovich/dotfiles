@@ -14,6 +14,7 @@ Practising these. Move a line to its section once it's a reflex.
   `"               back to where I last left this file         |'quote|
   `0               back to where I last quit Neovim            |'0|
   :oldfiles        recently opened files                       |:oldfiles|
+  :fclose!         close every floating window                 |:fclose|
 
 ==============================================================================
 GREP AND QUICKFIX                                               *cheat-grep*
@@ -65,6 +66,17 @@ GIT HUNKS                                                        *cheat-git*
   \hb              blame for the current line in a float, full message
   \tb              toggle blame as virtual text at end of line
   \hs  \hr         stage / reset hunk, also in visual mode
+
+==============================================================================
+SHELL PROMPT                                                  *cheat-prompt*
+
+  (repo/…/a/b [master])   repo, last two folders inside it, branch
+  *  +             unstaged / staged changes (git-prompt.sh order)
+  [master|rebase-i]   git action in progress
+  ❯  ❮             vi insert / normal mode; red after a failed command
+  prompt pure      switch theme in this shell, prompt ky to go back
+  exec zsh         fresh shell after editing zshrc
+  Cmd-Up  Cmd-Down   previous / next prompt (Ghostty)
 
 ==============================================================================
 LATER                                                          *cheat-later*
