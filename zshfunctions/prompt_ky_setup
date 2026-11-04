@@ -24,6 +24,16 @@ function +vi-ky-subdir() {
   fi
 }
 
+function +vi-ky-upstream() {
+  [[ $1 == 0 ]] || return 0
+  local -a count=(${(ps:\t:)"$(git rev-list --left-right --count '@{upstream}...HEAD' 2>/dev/null)"})
+  local behind=${count[1]:-0} ahead=${count[2]:-0}
+  (( ahead || behind )) || return 0
+  hook_com[misc]='|u'
+  (( ahead )) && hook_com[misc]+="+$ahead"
+  (( behind )) && hook_com[misc]+="-$behind"
+}
+
 function prompt_ky_setup() {
   autoload -Uz vcs_info add-zsh-hook add-zle-hook-widget
   prompt_opts=(subst percent)
@@ -32,9 +42,9 @@ function prompt_ky_setup() {
   zstyle ':vcs_info:*' check-for-changes true
   zstyle ':vcs_info:*' unstagedstr '%F{red}*%f'
   zstyle ':vcs_info:*' stagedstr '%F{green}+%f'
-  zstyle ':vcs_info:*' formats ' [%b%u%c]' '%r%S'
-  zstyle ':vcs_info:*' actionformats ' [%b|%a%u%c]' '%r%S'
-  zstyle ':vcs_info:git+set-message:*' hooks ky-subdir
+  zstyle ':vcs_info:*' formats ' (%b%u%c%m)' '%r%S'
+  zstyle ':vcs_info:*' actionformats ' (%b|%a%u%c%m)' '%r%S'
+  zstyle ':vcs_info:git+set-message:*' hooks ky-subdir ky-upstream
   add-zsh-hook precmd vcs_info
 
   typeset -g prompt_ky_char='❯'
@@ -46,7 +56,7 @@ function prompt_ky_setup() {
     add-zle-hook-widget -d zle-keymap-select prompt_ky_keymap_select;
     add-zle-hook-widget -d zle-line-finish prompt_ky_line_finish'
 
-  PROMPT='(%F{blue}${vcs_info_msg_1_:-%2~}%f${vcs_info_msg_0_}) %(?.%F{magenta}.%F{red})${prompt_ky_char}%f '
+  PROMPT='%F{blue}${vcs_info_msg_1_:-%2~}%f${vcs_info_msg_0_} %(?.%F{magenta}.%F{red})${prompt_ky_char}%f '
 }
 
 prompt_ky_setup "$@"
