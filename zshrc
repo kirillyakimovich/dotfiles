@@ -15,14 +15,6 @@ bindkey -v
 autoload -Uz compinit && compinit
 ### Auto completion end
 
-### Prompt start
-autoload -Uz promptinit
-promptinit
-if ((${prompt_themes[(Ie)pure]})); then
-  prompt pure
-fi
-### Prompt end
-
 ###History start
 
 setopt EXTENDED_HISTORY       # Write the history file in the ':start:elapsed;command' format.
@@ -51,6 +43,11 @@ fpath=($DOTFILES/zshfunctions $fpath)
 autoload -Uz $DOTFILES/zshfunctions/*(:t)
 
 ### Functions from dedicated folder end
+
+### Prompt start
+autoload -Uz promptinit && promptinit
+prompt ky
+### Prompt end
 
 if [[ -n $HOMEBREW_PREFIX ]]; then
   source "$HOMEBREW_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"

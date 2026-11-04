@@ -1,0 +1,49 @@
+#!/usr/bin/env zsh
+
+# Prompt theme for promptinit, enable with `prompt ky`
+
+function prompt_ky_keymap_select() {
+  [[ $KEYMAP == (vicmd|visual) ]] && prompt_ky_char='❮' || prompt_ky_char='❯'
+  zle reset-prompt
+}
+
+function prompt_ky_line_finish() {
+  prompt_ky_char='❯'
+}
+
+function +vi-ky-subdir() {
+  # Runs once per format; $1 is its index, and only format 1 ('%r%S') shows the path
+  [[ $1 == 1 ]] || return 0
+  local subdir=${hook_com[subdir]}
+  if [[ $subdir == . ]]; then
+    hook_com[subdir]=
+  elif [[ $subdir == */*/* ]]; then
+    hook_com[subdir]="/…/${subdir:h:t}/${subdir:t}"
+  else
+    hook_com[subdir]="/$subdir"
+  fi
+}
+
+function prompt_ky_setup() {
+  autoload -Uz vcs_info add-zsh-hook add-zle-hook-widget
+  prompt_opts=(subst percent)
+
+  zstyle ':vcs_info:*' enable git
+  zstyle ':vcs_info:*' formats ' [%b]' '%r%S'
+  zstyle ':vcs_info:*' actionformats ' [%b|%a]' '%r%S'
+  zstyle ':vcs_info:git+set-message:*' hooks ky-subdir
+  add-zsh-hook precmd vcs_info
+
+  typeset -g prompt_ky_char='❯'
+  add-zle-hook-widget zle-keymap-select prompt_ky_keymap_select
+  add-zle-hook-widget zle-line-finish prompt_ky_line_finish
+
+  prompt_cleanup 'add-zsh-hook -d precmd vcs_info;
+    zstyle -d ":vcs_info:git+set-message:*" hooks;
+    add-zle-hook-widget -d zle-keymap-select prompt_ky_keymap_select;
+    add-zle-hook-widget -d zle-line-finish prompt_ky_line_finish'
+
+  PROMPT='(%F{blue}${vcs_info_msg_1_:-%2~}%f${vcs_info_msg_0_}) %(?.%F{magenta}.%F{red})${prompt_ky_char}%f '
+}
+
+prompt_ky_setup "$@"
