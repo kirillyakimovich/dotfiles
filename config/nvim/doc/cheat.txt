@@ -9,6 +9,7 @@ Practising these. Move a line to its section once it's a reflex.
 
   :grep {pat}      search into the quickfix list               |:grep|
   ]q  [q           next / previous quickfix entry              |]q|
+  [Q  ]Q           first / last quickfix entry                 |[Q|
   :copen           open the quickfix window                    |:copen|
   gO               outline of the file or man page             |gO|
   `"               back to where I last left this file         |'quote|
@@ -73,9 +74,10 @@ GIT HUNKS                                                        *cheat-git*
 ==============================================================================
 SHELL PROMPT                                                  *cheat-prompt*
 
-  (repo/…/a/b [master])   repo, last two folders inside it, branch
+  repo/…/a/b (master)   repo, last two folders inside it, branch
   *  +             unstaged / staged changes (git-prompt.sh order)
-  [master|rebase-i]   git action in progress
+  |u+3-2           3 commits ahead of / 2 behind upstream, as of last fetch
+  (master|rebase-i)   git action in progress
   ❯  ❮             vi insert / normal mode; red after a failed command
   prompt pure      switch theme in this shell, prompt ky to go back
   exec zsh         fresh shell after editing zshrc
