@@ -15,6 +15,8 @@ Practising these. Move a line to its section once it's a reflex.
   `0               back to where I last quit Neovim            |'0|
   :oldfiles        recently opened files                       |:oldfiles|
   :fclose!         close every floating window                 |:fclose|
+  :Gqf @           staged + unstaged hunks into quickfix (git-jump)
+  g qf @           same from the shell, opens Neovim on the hunks
 
 ==============================================================================
 GREP AND QUICKFIX                                               *cheat-grep*

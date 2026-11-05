@@ -20,3 +20,5 @@ vim.keymap.set("n", "<leader>hb", "<cmd>Gitsigns blame_line full=true<CR>")
 vim.keymap.set("n", "<leader>tb", "<cmd>Gitsigns toggle_current_line_blame<CR>")
 vim.keymap.set({ "n", "x" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
 vim.keymap.set({ "n", "x" }, "<leader>hr", ":Gitsigns reset_hunk<CR>")
+
+vim.api.nvim_create_user_command("Gqf", "silent cexpr system('git jump --stdout diff <args>') | copen", { nargs = "*" })
