@@ -44,6 +44,10 @@
 	ca = commit --amend
 	can = commit --amend --no-edit
 
+	# diff
+	d = diff
+	dc = diff --cached
+
 	# network (out)
 	poh = push origin HEAD
 
