@@ -7,7 +7,7 @@ NOW                                                              *cheat-now*
 
 Practising these. Move a line to its section once it's a reflex.
 
-  :grep {pat}      search into the quickfix list               |:grep|
+  :Grep {pat}      search into quickfix as results arrive (grep.lua)
   ]q  [q           next / previous quickfix entry              |]q|
   [Q  ]Q           first / last quickfix entry                 |[Q|
   :copen           open the quickfix window                    |:copen|
@@ -22,8 +22,10 @@ Practising these. Move a line to its section once it's a reflex.
 ==============================================================================
 GREP AND QUICKFIX                                               *cheat-grep*
 
-  :grep {pat}      default 'grepprg' is "rg --vimgrep -uu"     |'grepprg'|
-                   -uu skips .gitignore, so ignored files match too
+  :grep {pat}      same search, but waits until it finishes    |:grep|
+  'grepprg'        git grep -E in a repo (tracked files only)  |'grepprg'|
+                   else rg --vimgrep -uu (ignored files too)
+                   switches on :cd (grep.lua)
   :cdo {cmd}       run {cmd} on every quickfix entry           |:cdo|
   :Cfilter {pat}   keep matching entries (:packadd cfilter)    |:Cfilter|
 
@@ -94,7 +96,6 @@ LATER                                                          *cheat-later*
 ==============================================================================
 TODO                                                            *cheat-todo*
 
-  - 'grepprg' that respects .gitignore: rg --vimgrep --smart-case
   - 'findfunc' using git ls-files + matchfuzzy() for :find     |'findfunc'|
   - |restore-cursor| autocmd, only if I end up typing `" on every open
 
