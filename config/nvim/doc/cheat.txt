@@ -61,7 +61,8 @@ MAN PAGES                                                        *cheat-man*
 ==============================================================================
 GIT HUNKS                                                        *cheat-git*
 
-  ]g  [g           next / previous hunk (gitsigns)
+  ]c  [c           next / previous change: git hunk, or block in diff mode
+                   c for change, same as built-in diff mode    |]c|
   \hp              preview hunk
   \hb              blame for the current line in a float, full message
   \tb              toggle blame as virtual text at end of line
