@@ -49,6 +49,9 @@
 	dc = diff --cached
 	qf = jump diff
 
+	# git-pile
+	submitpr-no-template = !GIT_PILE_USE_PR_TEMPLATE= git submitpr
+
 	# network (out)
 	poh = push origin HEAD
 
