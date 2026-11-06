@@ -13,6 +13,7 @@ bindkey -v
 
 ### Auto completion start
 autoload -Uz compinit && compinit
+zstyle -e ':completion:*:*:git:*' user-commands 'reply=(${${(M)${(k)commands}:#git-*}/git-/})'
 ### Auto completion end
 
 ###History start
