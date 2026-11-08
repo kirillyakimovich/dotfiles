@@ -64,6 +64,19 @@ MAN PAGES                                                        *cheat-man*
   gO               outline of the page's sections
 
 ==============================================================================
+FOLDS                                                          *cheat-folds*
+
+Indent folds everywhere, off until the first close (init.lua).
+
+  za               toggle the fold under the cursor            |za|
+  zc  zo           close / open the fold under the cursor      |zc|
+  zM  zR           close / open everything: outline / full     |zM|
+  zm  zr           one level more / less folded                |zm|
+  zj  zk           next / previous fold                        |zj|
+  zi               folding off / on, folds are kept            |zi|
+  gO               outline of code via LSP symbols, try first  |gO|
+
+==============================================================================
 GIT HUNKS                                                        *cheat-git*
 
   ]c  [c           next / previous change: git hunk, or block in diff mode
