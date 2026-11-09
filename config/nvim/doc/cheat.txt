@@ -18,6 +18,7 @@ Practising these. Move a line to its section once it's a reflex.
   :fclose!         close every floating window                 |:fclose|
   :Gqf @           staged + unstaged hunks into quickfix (git-jump)
   g qf @           same from the shell, opens Neovim on the hunks
+  zz  zt  zb       cursor line to middle / top / bottom        |zz|
 
 ==============================================================================
 GREP AND QUICKFIX                                               *cheat-grep*
@@ -77,6 +78,19 @@ Indent folds everywhere, off until the first close (init.lua).
   gO               outline of code via LSP symbols, try first  |gO|
 
 ==============================================================================
+WINDOWS                                                      *cheat-windows*
+
+CTRL-W is Ctrl+w, no Shift. The key after it is case-sensitive.
+
+  :new | r !{cmd}  {cmd} output in a split below, :q! closes   |:new|
+  :vnew | r !{cmd} same, side by side                          |:vnew|
+  CTRL-W w  W      next / previous window                      |CTRL-W_w|
+  CTRL-W _  |      maximize height / width                     |CTRL-W__|
+  CTRL-W =         make all windows equal again                |CTRL-W_=|
+  CTRL-W o         keep only this window                       |CTRL-W_o|
+  :tab split       current window full screen, :q to go back   |:tab|
+
+==============================================================================
 GIT HUNKS                                                        *cheat-git*
 
   ]c  [c           next / previous change: git hunk, or block in diff mode
@@ -111,5 +125,7 @@ TODO                                                            *cheat-todo*
 
   - 'findfunc' using git ls-files + matchfuzzy() for :find     |'findfunc'|
   - |restore-cursor| autocmd, only if I end up typing `" on every open
+  - Python navigation (gO, grr, CTRL-]): ty LSP next to ruff, pinned in
+    install-uv-tools; check how to quiet type errors in Lyft-iOS
 
  vim:tw=78:ts=8:ft=help:norl:
