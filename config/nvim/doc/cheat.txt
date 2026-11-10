@@ -7,6 +7,9 @@ NOW                                                              *cheat-now*
 
 Practising these. Move a line to its section once it's a reflex.
 
+  \f  :find {name} fuzzy-open a file (find.lua)                |'findfunc'|
+  <Tab>  <S-Tab>   next / previous popup entry, or C-n C-p     |'wildmenu'|
+  <C-y>  <C-e>     accept entry / close popup, keep typed text |'wildmenu'|
   :Grep {pat}      search into quickfix as results arrive (grep.lua)
   ]q  [q           next / previous quickfix entry              |]q|
   [Q  ]Q           first / last quickfix entry                 |[Q|
@@ -123,7 +126,6 @@ LATER                                                          *cheat-later*
 ==============================================================================
 TODO                                                            *cheat-todo*
 
-  - 'findfunc' using git ls-files + matchfuzzy() for :find     |'findfunc'|
   - |restore-cursor| autocmd, only if I end up typing `" on every open
   - Python navigation (gO, grr, CTRL-]): ty LSP next to ruff, pinned in
     install-uv-tools; check how to quiet type errors in Lyft-iOS
