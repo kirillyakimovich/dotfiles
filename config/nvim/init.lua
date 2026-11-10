@@ -16,6 +16,7 @@ vim.o.breakindentopt = "shift:2"
 
 vim.o.number = true
 vim.o.winborder = "rounded"
+vim.o.pumborder = "rounded"
 
 -- Color Scheme
 --
