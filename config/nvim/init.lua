@@ -22,5 +22,4 @@ vim.o.winborder = "rounded"
 -- Old Solarized needs 256-color mode
 vim.o.termguicolors = false
 vim.o.background = "light"
-vim.g.solarized_diffmode = "high"
-vim.cmd.colorscheme("solarized")
+vim.cmd.colorscheme("ky")
