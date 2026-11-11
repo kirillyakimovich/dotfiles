@@ -8,6 +8,8 @@ NOW                                                              *cheat-now*
 Practising these. Move a line to its section once it's a reflex.
 
   \f  :find {name} fuzzy-open a file (find.lua)                |'findfunc'|
+  \F               fuzzy-open a file in the current folder     |%:h|
+  %%               on the : line: current file's folder + /    |%:h|
   <Tab>  <S-Tab>   next / previous popup entry, or C-n C-p     |'wildmenu'|
   <C-y>  <C-e>     accept entry / close popup, keep typed text |'wildmenu'|
   :Grep {pat}      search into quickfix as results arrive (grep.lua)

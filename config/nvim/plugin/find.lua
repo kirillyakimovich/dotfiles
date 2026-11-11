@@ -17,7 +17,16 @@ function _G.Find(arg, _)
   if #files == 0 then
     files = list_files()
   end
-  return arg == "" and files or vim.fn.matchfuzzy(files, arg)
+  local list, query = files, arg
+  local dir = arg:match("^.*/")
+  if dir and vim.fn.isdirectory(dir) == 1 then
+    local prefix = (dir:gsub("^%./", ""))
+    list = vim.tbl_filter(function(f)
+      return vim.startswith(f, prefix)
+    end, files)
+    query = arg:sub(#dir + 1)
+  end
+  return query == "" and list or vim.fn.matchfuzzy(list, query)
 end
 
 vim.o.findfunc = "v:lua.Find"
@@ -40,3 +49,5 @@ vim.api.nvim_create_autocmd("CmdlineChanged", {
 })
 
 vim.keymap.set("n", "<leader>f", ":find ", { desc = "Find file" })
+vim.keymap.set("n", "<leader>F", ":find <C-r>=expand('%:h')<CR>/", { desc = "Find file next to current" })
+vim.keymap.set("c", "%%", "<C-r>=expand('%:h')<CR>/", { desc = "Current file's directory" })
