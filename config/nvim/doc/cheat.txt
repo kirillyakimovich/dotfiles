@@ -12,6 +12,7 @@ Practising these. Move a line to its section once it's a reflex.
   %%               on the : line: current file's folder + /    |%:h|
   <Tab>  <S-Tab>   next / previous popup entry, or C-n C-p     |'wildmenu'|
   <C-y>  <C-e>     accept entry / close popup, keep typed text |'wildmenu'|
+  v \y             copy repo-relative path:lines (yank.lua)
   :Grep {pat}      search into quickfix as results arrive (grep.lua)
   ]q  [q           next / previous quickfix entry              |]q|
   [Q  ]Q           first / last quickfix entry                 |[Q|
