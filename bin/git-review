@@ -1,0 +1,72 @@
+#!/bin/bash
+
+set -euo pipefail
+
+readonly src="${REVIEW_SRC:-$HOME/src}"
+
+if [[ $# -ne 1 ]]; then
+  echo "usage: git review <pr-url>" >&2
+  exit 1
+fi
+
+readonly url="$1"
+
+pr="$(gh pr view "$url" --json number,baseRefName,url,files --jq '
+  .number,
+  .baseRefName,
+  (.url | split("/")[3:5] | join("/")),
+  ([.files[].path | select(contains("/")) | split("/")[0]] | unique | .[])')"
+
+folders=()
+{
+  read -r number
+  read -r base
+  read -r repo
+  while IFS= read -r folder; do
+    folders+=("$folder")
+  done
+} <<<"$pr"
+readonly number base repo name="${repo#*/}"
+
+_is_repo() {
+  local origin
+  origin="$(git -C "$1" remote get-url origin 2>/dev/null)" || return 1
+  [[ "$origin" =~ github\.com[:/]$repo(\.git)?$ ]]
+}
+
+if common="$(git rev-parse --path-format=absolute --git-common-dir 2>/dev/null)" &&
+  root="$(dirname "$common")" && _is_repo "$root"; then
+  :
+elif [[ -d "$src/$name" ]]; then
+  root="$src/$name"
+  if ! _is_repo "$root"; then
+    echo "error: $root exists, but its origin isn't $repo" >&2
+    exit 1
+  fi
+else
+  read -r -n 1 -p "$repo isn't in $src. Clone it to $src/$name? [y/N] " answer
+  echo
+  [[ "$answer" == [Yy] ]] || exit 1
+  root="$src/$name"
+  gh repo clone "$repo" "$root"
+fi
+
+readonly dir="$root-review-$number"
+
+git -C "$root" fetch --quiet origin "pull/$number/head" "$base"
+head="$(git -C "$root" rev-parse FETCH_HEAD)"
+readonly head
+
+if [[ -d "$dir" ]]; then
+  git -C "$dir" sparse-checkout add ${folders[@]+"${folders[@]}"}
+else
+  git -C "$root" worktree add --quiet --no-checkout --detach "$dir" "$head"
+  git -C "$dir" sparse-checkout set --cone ${folders[@]+"${folders[@]}"}
+fi
+git -C "$dir" checkout --quiet --detach "$head"
+fork="$(git -C "$dir" merge-base "origin/$base" HEAD)"
+git -C "$dir" config --worktree review.base "$fork"
+
+cd "$dir"
+git jump diff "origin/$base...HEAD"
+echo "done? git worktree remove $dir"
