@@ -1,4 +1,5 @@
 brew "bash-language-server"
+brew "buildifier"
 brew "gh"
 brew "hyperfine"
 brew "keith/formulae/git-pile"

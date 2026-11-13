@@ -2,7 +2,10 @@ vim.pack.add({ "https://github.com/stevearc/conform.nvim" })
 
 local notified = {}
 
+local bazel_roots = { "MODULE.bazel", "WORKSPACE", "WORKSPACE.bazel" }
+
 local projects = {
+  bzl = { auto = { ".buildifier.json" }, ask = bazel_roots },
   lua = { auto = { ".stylua.toml", "stylua.toml" } },
   python = { auto = { "ruff.toml", ".ruff.toml" }, ask = { "pyproject.toml" } },
   sh = { ask = { ".editorconfig" } },
@@ -11,12 +14,18 @@ local projects = {
 
 require("conform").setup({
   formatters_by_ft = {
+    bzl = { "buildifier" },
     lua = { "stylua" },
     python = { "ruff_fix", "ruff_format" },
     sh = { "shfmt" },
     zsh = { "shfmt" },
   },
   formatters = {
+    buildifier = {
+      args = { "-path", "$RELATIVE_FILEPATH", "-" },
+      cwd = require("conform.util").root_file(bazel_roots),
+      require_cwd = true,
+    },
     ruff_fix = { require_cwd = true, append_args = { "--unfixable", "F401" } },
     ruff_format = { require_cwd = true },
     shfmt = { cwd = require("conform.util").root_file({ ".editorconfig" }), require_cwd = true },
