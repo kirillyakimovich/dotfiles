@@ -1,4 +1,4 @@
-vim.keymap.set("x", "<leader>y", function()
+vim.keymap.set({ "n", "x" }, "<leader>y", function()
   local s, e = vim.fn.line("v"), vim.fn.line(".")
   if s > e then
     s, e = e, s
