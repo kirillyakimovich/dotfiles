@@ -50,7 +50,9 @@ require("conform").setup({
     local root = project.ask and vim.fs.root(buf, { project.ask })
     if root and not notified[root] then
       notified[root] = true
-      vim.notify("format-on-save is off in " .. root .. " (opt in with a trusted .nvim.lua)")
+      vim.schedule(function()
+        vim.notify("format-on-save is off in " .. root .. " (opt in with a trusted .nvim.lua)")
+      end)
     end
   end,
 })
