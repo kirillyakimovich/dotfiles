@@ -1,0 +1,30 @@
+#!/bin/bash
+
+set -euo pipefail
+
+format=hex
+if [[ "${1:-}" == --integrity ]]; then
+  format=integrity
+  shift
+fi
+
+if [[ $# -ne 1 ]]; then
+  echo "usage: get-sha256 [--integrity] <url|file>" >&2
+  exit 1
+fi
+
+readonly input="$1"
+if [[ -f "$input" ]]; then
+  file="$input"
+else
+  tmp="$(mktemp -d)"
+  trap 'rm -rf "$tmp"' EXIT
+  file="$tmp/download"
+  curl --location --fail --silent --show-error --output "$file" "$input"
+fi
+
+if [[ "$format" == integrity ]]; then
+  echo "sha256-$(openssl dgst -sha256 -binary "$file" | openssl base64 -A)"
+else
+  openssl dgst -sha256 -r "$file" | cut -d " " -f 1
+fi
