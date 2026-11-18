@@ -30,7 +30,6 @@ function _G.Find(arg, _)
 end
 
 vim.o.findfunc = "v:lua.Find"
-vim.o.wildmode = "noselect:lastused,full"
 
 vim.api.nvim_create_autocmd("CmdlineEnter", {
   pattern = ":",
@@ -42,7 +41,9 @@ vim.api.nvim_create_autocmd("CmdlineEnter", {
 vim.api.nvim_create_autocmd("CmdlineChanged", {
   pattern = ":",
   callback = function()
-    if vim.fn.getcmdline():match("^fin") then
+    local find = vim.fn.getcmdline():match("^fin") ~= nil
+    vim.o.wildmode = find and "noselect:lastused,full" or "longest:full:lastused,full"
+    if find then
       vim.fn.wildtrigger()
     end
   end,
