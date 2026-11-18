@@ -9,6 +9,8 @@ local projects = {
   lua = { auto = { ".stylua.toml", "stylua.toml" } },
   python = { auto = { "ruff.toml", ".ruff.toml" }, ask = { "pyproject.toml" } },
   sh = { ask = { ".editorconfig" } },
+  terraform = { always = true },
+  ["terraform-vars"] = { always = true },
   zsh = { ask = { ".editorconfig" } },
 }
 
@@ -18,6 +20,8 @@ require("conform").setup({
     lua = { "stylua" },
     python = { "ruff_fix", "ruff_format" },
     sh = { "shfmt" },
+    terraform = { "terraform_fmt" },
+    ["terraform-vars"] = { "terraform_fmt" },
     zsh = { "shfmt" },
   },
   formatters = {
@@ -40,7 +44,7 @@ require("conform").setup({
     if not project then
       return
     end
-    if vim.fs.root(buf, { project.auto }) then
+    if project.always or vim.fs.root(buf, { project.auto }) then
       return opts
     end
     local root = project.ask and vim.fs.root(buf, { project.ask })
