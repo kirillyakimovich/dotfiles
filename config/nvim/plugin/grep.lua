@@ -61,3 +61,5 @@ vim.api.nvim_create_user_command("Grep", function(opts)
   )
   running = this
 end, { nargs = "+", complete = "file" })
+
+vim.keymap.set("n", "<leader>g", "<cmd>Grep -w <cword><CR>")
