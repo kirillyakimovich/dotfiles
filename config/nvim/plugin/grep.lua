@@ -9,11 +9,11 @@ vim.api.nvim_create_autocmd("DirChanged", { callback = set_grepprg })
 
 local running
 
-vim.api.nvim_create_user_command("Grep", function(opts)
+local function grep(args)
   if running then
     running:kill("sigterm")
   end
-  local cmd = vim.o.grepprg .. " " .. vim.fn.expandcmd(opts.args)
+  local cmd = vim.o.grepprg .. " " .. args
   vim.fn.setqflist({}, " ", { title = cmd })
   local id = vim.fn.getqflist({ id = 0 }).id
   local partial = ""
@@ -60,6 +60,19 @@ vim.api.nvim_create_user_command("Grep", function(opts)
     end)
   )
   running = this
+end
+
+vim.api.nvim_create_user_command("Grep", function(opts)
+  grep((opts.args:gsub("<c%a+>", vim.fn.expand)))
 end, { nargs = "+", complete = "file" })
 
 vim.keymap.set("n", "<leader>g", "<cmd>Grep -w <cword><CR>")
+vim.keymap.set("x", "<leader>g", function()
+  local lines = vim.fn.getregion(vim.fn.getpos("v"), vim.fn.getpos("."), { type = vim.fn.mode() })
+  vim.api.nvim_feedkeys(vim.keycode("<Esc>"), "nx", false)
+  if #lines ~= 1 then
+    vim.notify("Select text on one line", vim.log.levels.WARN)
+    return
+  end
+  grep("-F " .. vim.fn.shellescape(lines[1]))
+end)
