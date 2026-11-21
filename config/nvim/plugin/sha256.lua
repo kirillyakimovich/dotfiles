@@ -53,10 +53,14 @@ local function match_hash(line)
   end
 end
 
+local function boundary(line)
+  return line:find("https?://") or line:find("^%s*$") or line:find("%(%s*$")
+end
+
 local function find_hash(lines, row, ft)
   local last = #lines
   for i = row + 2, #lines do
-    if lines[i]:find("https?://") then
+    if boundary(lines[i]) then
       last = i - 1
       break
     end
@@ -69,7 +73,7 @@ local function find_hash(lines, row, ft)
   end
   for i = row, 1, -1 do
     local line = lines[i]
-    if line:find("https?://") or line:find("^%s*$") or line:find("%(%s*$") then
+    if boundary(line) then
       break
     end
     local format, s = match_hash(line)
