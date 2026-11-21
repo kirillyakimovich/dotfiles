@@ -13,7 +13,12 @@ Practising these. Move a line to its section once it's a reflex.
   <Tab>  <S-Tab>   next / previous popup entry, or C-n C-p     |'wildmenu'|
   <C-y>  <C-e>     accept entry / close popup, keep typed text |'wildmenu'|
   v \y             copy repo-relative path:lines (yank.lua)
+  v "+y            copy the selection to the macOS clipboard   |quote+|
+  "+p  "+P         paste the macOS clipboard after / before    |quote+|
   :Grep {pat}      search into quickfix as results arrive (grep.lua)
+  \g  v \g         :Grep the word under the cursor / the selection (grep.lua)
+  :tab split  \g   side search in a new tab, :tabclose back to the review
+  ]c  ]f  ]q       next change / file in \hc panel / quickfix entry
   ]q  [q           next / previous quickfix entry              |]q|
   [Q  ]Q           first / last quickfix entry                 |[Q|
   :copen           open the quickfix window                    |:copen|
@@ -24,6 +29,7 @@ Practising these. Move a line to its section once it's a reflex.
   :fclose!         close every floating window                 |:fclose|
   :Gqf @           staged + unstaged hunks into quickfix (git-jump)
   g qf @           same from the shell, opens Neovim on the hunks
+  :windo set wrap  wrap both sides of a \hd diff (long prose)  |:windo|
   zz  zt  zb       cursor line to middle / top / bottom        |zz|
 
 ==============================================================================
@@ -103,6 +109,8 @@ GIT HUNKS                                                        *cheat-git*
                    c for change, same as built-in diff mode    |]c|
   \hp              preview hunk
   \hb              blame for the current line in a float, full message
+  \hc              the line's commit (whole PR) in a diff tab, :tabclose back
+  \hg              the line's commit on GitHub, PR linked from there
   \tb              toggle blame as virtual text at end of line
   \hs  \hr         stage / reset hunk, also in visual mode
 
@@ -117,6 +125,8 @@ SHELL PROMPT                                                  *cheat-prompt*
   prompt pure      switch theme in this shell, prompt ky to go back
   exec zsh         fresh shell after editing zshrc
   Cmd-Up  Cmd-Down   previous / next prompt (Ghostty)
+  cd -             back to the previous folder ($OLDPWD)
+  git switch -     back to the previous branch
 
 ==============================================================================
 LATER                                                          *cheat-later*
@@ -132,5 +142,7 @@ TODO                                                            *cheat-todo*
   - |restore-cursor| autocmd, only if I end up typing `" on every open
   - Python navigation (gO, grr, CTRL-]): ty LSP next to ruff, pinned in
     install-uv-tools; check how to quiet type errors in Lyft-iOS
+  - zsh AUTO_PUSHD (cd -<Tab> lists recent folders), only if I keep
+    retracing more than one folder with cd -
 
  vim:tw=78:ts=8:ft=help:norl:
