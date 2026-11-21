@@ -67,6 +67,13 @@ git -C "$dir" checkout --quiet --detach "$head"
 fork="$(git -C "$dir" merge-base "origin/$base" HEAD)"
 git -C "$dir" config --worktree review.base "$fork"
 
+desc="$(git -C "$dir" rev-parse --absolute-git-dir)/PR.md"
+{
+  gh pr view "$url"
+  printf '\n-- comments --\n'
+  gh pr view "$url" --comments
+} >"$desc"
+
 cd "$dir"
-git jump diff "origin/$base...HEAD"
+nvim -c "lua require('gitsigns').diff('$fork', nil, nil, function() vim.cmd.tabnew('$desc') end)"
 echo "done? git worktree remove $dir"
