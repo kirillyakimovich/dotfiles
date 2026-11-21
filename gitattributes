@@ -1,3 +1,4 @@
+*.md diff=markdown
 *.plist diff=plist
 *.swift diff=swift
 *.zip diff=zip
