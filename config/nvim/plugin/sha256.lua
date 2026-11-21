@@ -67,6 +67,16 @@ local function find_hash(lines, row, ft)
       return { format = format, row = i - 1, s = s }
     end
   end
+  for i = row, 1, -1 do
+    local line = lines[i]
+    if line:find("https?://") or line:find("^%s*$") or line:find("%(%s*$") then
+      break
+    end
+    local format, s = match_hash(line)
+    if format then
+      return { format = format, row = i - 1, s = s }
+    end
+  end
   if not (ft and ft.definition) then
     return
   end
