@@ -3,6 +3,7 @@ brew "buildifier"
 brew "gh"
 brew "hyperfine"
 brew "keith/formulae/git-pile"
+brew "keith/formulae/normalize-profile"
 brew "lua-language-server"
 brew "neovim"
 brew "pure" # https://github.com/sindresorhus/pure#getting-started
